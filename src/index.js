@@ -4,12 +4,9 @@ import ReactDOM from 'react-dom'
 import YTSearch from 'youtube-api-search'
 import SearchBar from './components/search_bar.js'
 import VideoList from './components/video_list'
-import VideoDetail from "./components/video_detail"
+import VideoDetail from './components/video_detail'
 
-
-
-const API_KEY = process.env.YOUTUBE_API_KEY
-
+const API_KEY = process.env.YOUTUBE_API_KEY;
 class App extends Component {
     constructor(props) {
         super(props)
@@ -35,7 +32,9 @@ class App extends Component {
     }
 
     render() {
-        const videoSearch = _.debounce((term) => {this.videoSearch(term)},300)
+        const videoSearch = _.debounce((term) => {
+            this.videoSearch(term)
+        }, 300)
         return (
             <div>
                 <SearchBar onSearchTermChange={videoSearch}/>

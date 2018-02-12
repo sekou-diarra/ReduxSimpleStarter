@@ -1,3 +1,5 @@
+const webpack = require('webpack'); //to access built-in plugins
+
 module.exports = {
   entry: [
     './src/index.js'
@@ -22,5 +24,10 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     contentBase: './'
-  }
+  } ,
+    plugins: [
+        new webpack.DefinePlugin({
+            'process.env.YOUTUBE_API_KEY':JSON.stringify(process.env.YOUTUBE_API_KEY)
+        })
+    ]
 };
